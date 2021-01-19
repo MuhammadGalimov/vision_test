@@ -1,16 +1,16 @@
-{% extends 'index.html' %}
-
-{% block text %}
-<div class="d-flex align-items-center textcl">
+<div class="d-flex align-items-center textcl"
+     style="
+     {% if text.img %}
+     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url({{ text.img }});
+     {% endif %}
+     {% if text.back %}
+     background-color: {{ text.back }};
+     {% endif %}">
     <div class="container p-0">
         <div class="row align-items-center">
             <div class="col">
-                <ul>
-                    <li class="textcl-text">Первая услуга Коротко расскажите в чем ее суть и добавьте яркое фото, чтобы привлечь больше внимания клиентов.</li>
-                    <li class="textcl-text">Вторая услуга Напишите об услуге коротко: что в нее входит или из каких этапов работы она состоит.</li>
-                </ul>
+                <p class="textcl-text">{{ text.text }}</p>
             </div>
         </div>
     </div>
 </div>
-{% endblock %}

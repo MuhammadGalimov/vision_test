@@ -1,5 +1,20 @@
-{% extends 'index.html' %}
-
-{% block form %}
-
-{% endblock %}
+<div class="vh-100 d-flex align-items-center formcl"
+     style="
+     {% if form.img %}
+     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url({{ form.img }});
+     {% endif %}
+     {% if form.back %}
+     background-color: {{ form.back }};
+     {% endif %}">
+    <div class="container p-0">
+        <div class="row align-items-center">
+            <div class="col">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Отправить" class="submit-but">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

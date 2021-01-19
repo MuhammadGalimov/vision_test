@@ -1,14 +1,18 @@
-{% extends 'index.html' %}
-
-{% block section %}
-<div class="vh-40 d-flex align-items-center section">
+<div class="vh-40 d-flex align-items-center section"
+     style="
+     {% if section.img %}
+        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url({{ section.img }});
+     {% endif %}
+     {% if section.back %}
+        background-color: {{ section.back }};
+     {% endif %}">
     <div class="container p-0">
         <div class="row align-items-center">
             <div class="col">
-                <h1 class="section-title">Наши услуги</h1>
-                <p class="section-text">Расскажите, с чем связаны услуги вашей компании и раскройте гланую выгоду клиента</p>
+                <h1 class="section-title">{{ section.title }}</h1>
+                <h2 class="section-subtitle">{{ section.subtitle }}</h2>
+                <p class="section-text">{{ section.desc }}</p>
             </div>
         </div>
     </div>
 </div>
-{% endblock %}
