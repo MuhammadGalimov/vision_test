@@ -15,10 +15,12 @@
 
 <body>
     <div class="d-flex flex-wrap flex-column">
-        {% include "heading_block.html" %}
-        {% include "section_block.html" %}
-        {% include "text_block.html" %}
-        {% include "form_block.html" %}
+        {% block content %}
+            {% include "app/heading_block.html" %}
+            {% include "app/section_block.html" %}
+            {% include "app/text_block.html" %}
+            {% include "app/form_block.html" %}
+        {% endblock %}
     </div>
 </body>
 </html>
