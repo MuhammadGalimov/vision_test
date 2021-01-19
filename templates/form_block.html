@@ -8,11 +8,23 @@
      {% endif %}">
     <div class="container p-0">
         <div class="row align-items-center">
-            <div class="col">
+            <div class="d-grid gap-2 col-5 mx-auto">
                 <form action="" method="post">
                     {% csrf_token %}
-                    {{ form }}
-                    <input type="submit" value="Отправить" class="submit-but">
+
+                    {% for field in Form %}
+                        {% if field.errors %}
+                            <div class="alert alert-danger mt-3">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+
+                        <div class="form-group mt-3">
+                            {{ field.label }}
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary bt-lg heading-button mt-5">{{ form.btn_text }}</button>
                 </form>
             </div>
         </div>

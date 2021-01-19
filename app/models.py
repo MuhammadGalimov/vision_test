@@ -33,7 +33,7 @@ class BlockFormModel(models.Model):
     background_color = models.CharField(verbose_name='Цвет фона', max_length=7, default='#ebebeb')
 
 
-class MailsForm(models.Model):
+class MailsModel(models.Model):
     email = models.EmailField()
     name = models.CharField(max_length=50)
     phone_regex = RegexValidator(regex=r'^\+?\d{11}$')
