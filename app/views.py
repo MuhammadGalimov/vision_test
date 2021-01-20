@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail
 from .models import BlockFormModel, BlockTextModel, BlockHeadingModel, BlockSectionModel, MailsModel
 from .forms import MailForm
+from .elements import Element
 
 
 def main_view(request):
@@ -11,6 +12,9 @@ def main_view(request):
     text = BlockTextModel.objects.get(pk=1)
     formblock = BlockFormModel.objects.get(pk=1)
     form = MailForm()
+
+    t = Element('title', 'title')
+    print(t.render())
 
     if request.method == 'POST':
         form = MailForm(request.POST)
@@ -29,7 +33,7 @@ def main_view(request):
                       fail_silently=False)
 
             # заносим данные в базу
-            m = MailForm.objects.create(email=email, name=name, phone=phone, text=text)
+            m = MailsModel.objects.create(email=email, name=name, phone=phone, text=text)
 
             return HttpResponseRedirect('/')
 

@@ -39,3 +39,7 @@ class MailsModel(models.Model):
     phone_regex = RegexValidator(regex=r'^\+?\d{11}$')
     phone = models.CharField(validators=[phone_regex], max_length=12, blank=True)
     text = models.TextField(blank=True)
+
+
+# class BlockOrd(models.Model):
+#    heading_id = models.OneToOneField(BlockHeadingModel, on_delete=models.CASCADE)
