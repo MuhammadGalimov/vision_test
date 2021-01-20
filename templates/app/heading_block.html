@@ -5,7 +5,9 @@
         <div class="row align-items-center">
             <div class="col">
                 <h1 class="heading-title">{{ heading.title }}</h1>
+                {% if heading.desc %}
                 <p class="heading-text">{{ heading.desc }}</p>
+                {% endif %}
                 <div class="d-grid gap-2 col-3 mx-auto pt-5">
                     <button class="btn btn-primary bt-lg heading-button" type="button">{{ heading.btn_text }}</button>
                 </div>

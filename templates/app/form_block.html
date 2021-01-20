@@ -1,4 +1,4 @@
-<div class="vh-100 d-flex align-items-center formcl"
+<div class="d-flex align-items-center formcl"
      style="
      {% if form.img %}
      background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url({{ form.img }});
@@ -9,6 +9,12 @@
     <div class="container p-0">
         <div class="row align-items-center">
             <div class="d-grid gap-2 col-5 mx-auto">
+                {% if form.title %}
+                    <h1 class="section-title">{{ form.title }}</h1>
+                {% endif %}
+                {% if form.desc %}
+                    <p class="section-text">{{ form.desc }}</p>
+                {% endif %}
                 <form action="" method="post">
                     {% csrf_token %}
 
@@ -26,6 +32,9 @@
                     {% endfor %}
                     <button type="submit" class="btn btn-primary bt-lg heading-button mt-5">{{ form.btn_text }}</button>
                 </form>
+                {% if form.text %}
+                    <p class="form-text">{{ form.text }}</p>
+                {% endif %}
             </div>
         </div>
     </div>

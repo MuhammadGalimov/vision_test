@@ -55,6 +55,11 @@ def main_view(request):
         },
         'form': {
             'btn_text': formblock.buttonText,
+            'title': formblock.title,
+            'desc': formblock.description,
+            'img': formblock.img,
+            'back': formblock.background_color,
+            'text': formblock.text,
         },
         'Form': form,
     }

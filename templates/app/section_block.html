@@ -9,9 +9,15 @@
     <div class="container p-0">
         <div class="row align-items-center">
             <div class="col">
+                {% if section.title %}
                 <h1 class="section-title">{{ section.title }}</h1>
+                {% endif %}
+                {% if subtitle.title %}
                 <h2 class="section-subtitle">{{ section.subtitle }}</h2>
+                {% endif %}
+                {% if section.desc %}
                 <p class="section-text">{{ section.desc }}</p>
+                {% endif %}
             </div>
         </div>
     </div>
